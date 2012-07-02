@@ -1,7 +1,7 @@
 var FeedParser = require('FeedParser'), parser = new FeedParser();
 var async = require('async');
 var _ = require('underscore');
-var ipaClient = require('ipa.client');
+var ipaClient = require('brik.ipa.client');
 
 module.exports = function(ipaServer, urls) {
   var publist = [];
