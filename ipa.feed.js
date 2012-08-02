@@ -1,27 +1,19 @@
 var FeedParser = require('FeedParser'), parser = new FeedParser();
 var async = require('async');
 var _ = require('underscore');
-var ipaClient = require('brik.ipa.client');
 
-module.exports = function(ipaServer, urls) {
-  var publist = [];
-  var ipa = ipaClient(ipaServer);
-
+module.exports = function(urls, shouldPublish, publish) {
   function readFeed(url, callback) {
     parser.parseUrl(url, function(err, meta, articles) {
-      if (err) {
-        callback(err);
-      }
-      callback(null, _.reject(articles, function(article) {
-        var exists = publist.indexOf(article.guid) !== -1;
-        if (!exists) publist.push(article.guid);
-        return exists;
+      if (err) callback(err);
+      else callback(null, _.reject(articles, function(article) {
+        return !shouldPublish(article);
       }));
     });
   }
 
   function publishArticle(article, callback) {
-    ipa.log(article.title, callback);
+    publish(article.title, callback);
   }
 
   return function(callback) {
