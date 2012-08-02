@@ -1,6 +1,7 @@
 {
   "author": "Jon Packer",
   "name": "brik.ipa.feed",
+  "main": "ipa.feed.js",
   "description": "read a set of feeds and send their content to ipa",
   "version": "0.1.0",
   "repository": {
