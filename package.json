@@ -2,7 +2,7 @@
   "author": "Jon Packer",
   "name": "brik.ipa.feed",
   "description": "read a set of feeds and send their content to ipa",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "repository": {
     "type": "git",
     "url": "git://github.com/brikteknologier/ipa.git"
