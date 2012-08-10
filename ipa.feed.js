@@ -1,4 +1,4 @@
-var FeedParser = require('FeedParser'), parser = new FeedParser();
+var FeedParser = require('feedparser'), parser = new FeedParser();
 var async = require('async');
 var _ = require('underscore');
 
